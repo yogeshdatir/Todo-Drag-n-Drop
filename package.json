@@ -1,8 +1,12 @@
 {
   "name": "todo-drag-n-drop",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "Used react-beautiful-dnd",
+  "keywords": [
+    "react",
+    "react-beautiful-dnd",
+    "dnd"
+  ],
   "main": "src/index.tsx",
   "dependencies": {
     "@types/react-beautiful-dnd": "13.1.2",
