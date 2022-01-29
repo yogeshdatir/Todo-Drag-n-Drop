@@ -1,4 +1,8 @@
-import { Draggable } from "react-beautiful-dnd";
+import {
+  Draggable,
+  DraggableProvided,
+  DraggableStateSnapshot,
+} from "react-beautiful-dnd";
 import styled from "styled-components";
 
 const Container = styled.div<any>`
@@ -6,7 +10,7 @@ const Container = styled.div<any>`
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: ${(props: any) => (props.isDragging ? "#f2f2f2" : "#fff")};
 `;
 
 interface IProps {
@@ -16,11 +20,12 @@ interface IProps {
 const Task = ({ task, index }: IProps) => {
   return (
     <Draggable draggableId={task.id} index={index}>
-      {(provided: any) => (
+      {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
         <Container
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
+          isDragging={snapshot.isDragging}
         >
           {task.content}
         </Container>

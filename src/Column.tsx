@@ -1,4 +1,8 @@
-import { Droppable } from "react-beautiful-dnd";
+import {
+  Droppable,
+  DroppableProvided,
+  DroppableStateSnapshot,
+} from "react-beautiful-dnd";
 import styled from "styled-components";
 import Task from "./Task";
 
@@ -14,6 +18,8 @@ const Title = styled.h3`
 
 const TaskList = styled.div<any>`
   padding: 8px;
+  background-color: ${(props: any) =>
+    props.isDraggingOver ? "#e0e0e0" : "#fff"};
 `;
 
 interface IProps {
@@ -26,8 +32,12 @@ const Column = ({ column, tasks }: IProps) => {
     <Container>
       <Title>{column.title}</Title>
       <Droppable droppableId={column.id}>
-        {(provided: any) => (
-          <TaskList ref={provided.innerRef} {...provided.droppableProps}>
+        {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
+          <TaskList
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            isDraggingOver={snapshot.isDraggingOver}
+          >
             {tasks.map((task: any, index: number) => (
               <Task key={task.id} task={task} index={index} />
             ))}
