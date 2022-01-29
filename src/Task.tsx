@@ -11,6 +11,15 @@ const Container = styled.div<any>`
   padding: 8px;
   margin-bottom: 8px;
   background-color: ${(props: any) => (props.isDragging ? "#f2f2f2" : "#fff")};
+  display: flex;
+`;
+
+const Handle = styled.div`
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
 `;
 
 interface IProps {
@@ -23,10 +32,10 @@ const Task = ({ task, index }: IProps) => {
       {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
         <Container
           {...provided.draggableProps}
-          {...provided.dragHandleProps}
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
         >
+          <Handle {...provided.dragHandleProps} />
           {task.content}
         </Container>
       )}

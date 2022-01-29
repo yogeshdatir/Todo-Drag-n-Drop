@@ -46,3 +46,9 @@ const initialData = {
 ---
 9. <u>**To add the styling**</u> to the `droppable` and `draggable` components, **`snapshot`** state in `droppable` and `draggable` children function is used.
 **`isDragging`** for `draggable` and **`isDraggingOver`** for `droppable` are provided to styled components as props which can be used for conditional styling.
+---
+10. `onDragStart` and `onDragUpdate` callbacks can also be used to trigger any changes on start and during the drag.
+---
+
+11. We can <u>**add custom drag handle**</u> like shown in the picture. To make it functional, add the `provided.dragHandleProps` props to the custom component. Wherever these props are provided that component can be used as drag handle.
+---
