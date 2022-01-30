@@ -10,6 +10,10 @@ const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgray;
   border-radius: 2px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h3`
@@ -20,6 +24,9 @@ const TaskList = styled.div<any>`
   padding: 8px;
   background-color: ${(props: any) =>
     props.isDraggingOver ? "#e0e0e0" : "#fff"};
+
+  flex: 1;
+  min-height: 100px;
 `;
 
 interface IProps {
